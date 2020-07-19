@@ -19,7 +19,11 @@ class Controller {
 
     function checkCookie() {
         $db = new DB();
-        return $db->checkCookie($_COOKIE['admin']);
+        if($_COOKIE['admin']) {
+            return $db->checkCookie($_COOKIE['admin']);
+        } else {
+            return "Error";
+        }
     }
 
     function setQuery($query) {
