@@ -19,7 +19,7 @@ class Controller {
 
     function checkCookie() {
         $db = new DB();
-        if($_COOKIE['admin']) {
+        if(array_key_exists('admin', $_COOKIE)) {
             return $db->checkCookie($_COOKIE['admin']);
         } else {
             return "Error";

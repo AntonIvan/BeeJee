@@ -25,8 +25,10 @@ class Route
             $action_name = $routes[2];
         }
 
-        if($parts['query']) {
+        if(array_key_exists('query', $parts)) {
             parse_str($parts['query'], $query);
+        } else {
+            $query = "";
         }
 
         if($routes[1] == "api" && $_SERVER['SERVER_NAME'] == $_SERVER['HTTP_HOST'] && $_POST) {
