@@ -4,8 +4,14 @@ class Controller_Main extends Controller
     function action_index()
     {
         $db = new DB();
-        if(is_null($this->query['page'])) {
+        if(!$this->query['page'] || is_null($this->query['page'])) {
             $this->query['page'] = 1;
+        }
+        if(!$this->query['sort']) {
+            $this->query['sort'] = "";
+        }
+        if($this->query['orderby']) {
+            $this->query['orderby'] = "";
         }
         $this->view->generate('main.php',
             'template.php',

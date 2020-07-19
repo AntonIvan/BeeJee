@@ -73,12 +73,12 @@ class DB {
         } else {
             $start = 3 * $query['page'] - 3;
         }
-        if($query['orderby'] == "asc") {
+        if($query['orderby'] && $query['orderby'] == "asc") {
             $orderby = "ASC";
         } else {
             $orderby = "DESC";
         }
-        if($query['sort']) {
+        if($query['sort'] && $query['sort']) {
             $sort = $query['sort'];
         } else {
             $sort = "id";

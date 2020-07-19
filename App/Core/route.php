@@ -25,7 +25,9 @@ class Route
             $action_name = $routes[2];
         }
 
-        parse_str($parts['query'], $query);
+        if($parts['query']) {
+            parse_str($parts['query'], $query);
+        }
 
         if($routes[1] == "api" && $_SERVER['SERVER_NAME'] == $_SERVER['HTTP_HOST'] && $_POST) {
             return new Api($action_name, $_REQUEST);
