@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  beejee_backend:
+    image: beejee_backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - /app/BeeJee:/app
+
+  beejee-frontend:
+    image: beejee-frontend
+    build:
+      context: ../frontend/
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    links:
+      - beejee_backend
+    volumes:
+      - /app/BeeJee:/app
