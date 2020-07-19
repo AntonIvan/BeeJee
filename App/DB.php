@@ -80,9 +80,8 @@ class DB {
         }
         if(array_key_exists('sort', $query)) {
             $sort = $query['sort'];
-        } else {
-            $sort = "id";
         }
+        
         $result = $this->pdo->query("SELECT * FROM tasks ORDER BY ".$sort." ".$orderby." LIMIT ".$start.",3");
         return $result->fetchAll();
     }
