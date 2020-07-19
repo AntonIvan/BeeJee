@@ -56,7 +56,9 @@
             <ul class="pagination">
                 <?php for ($i = 1; $i <= $data['pages']; $i++) {?>
                     <li class="<? if($i != $data['currentPage']) {?>waves-effect<? } else {?>active<? } ?>">
-                        <a href="/?page=<? echo $i ?>&sort=<? echo $data['sort'];?>&orderby=<? echo $data['orderby'];?>"><? echo $i ?></a>
+                        <a href="/?page=<? echo $i ?><?php if($data['sort'] != "") { echo "&sort={$data['sort']}"; }
+                        if($data['orderby'] != "") { echo "&orderby={$data['orderby']}"; } ?>
+                        "><? echo $i ?></a>
                     </li>
                 <?php } ?>
             </ul>

@@ -9,7 +9,7 @@ class Controller_Main extends Controller
             $this->query['page'] = 1;
         }
         if(!array_key_exists('sort', $this->query)) {
-            $this->query['sort'] = "id";
+            $this->query['sort'] = "";
         }
         if(!array_key_exists('orderby', $this->query)) {
             $this->query['orderby'] = "";
